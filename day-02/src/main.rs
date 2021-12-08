@@ -1,6 +1,3 @@
-
-
-
 #![allow(dead_code)]
 #![allow(unused_variables)]
 #![allow(unused_mut)]
@@ -9,12 +6,13 @@
 #![allow(unused_imports)]
 #![allow(unused_parens)]
 
+
+
 use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
 use std::convert::TryInto;
 use std::char;
-
 use text_io::scan;
 
 
@@ -34,19 +32,29 @@ let coin = "head";
     };
 */
 
+fn split_for(inp_str: &str, c : char) -> Option<(&str, &str)> {
+    let mut iter = inp_str.split(c);
+    let o1 = iter.next()?;
+    let o2 = iter.next()?;
+    Some( (o1, o2) )
+}
+
 fn main() {
 
     let cont = read_file("src/input.txt");
     // let cont = read_file("src/mininput.txt");
 
-    let nums: Vec<Vec<String>> = cont
+    let nums: Vec<String> = cont
                         .split_whitespace()
-                        .map(|l| l.split_whitespace())
+                        .map(|l| l.parse::<String>())
                         .flatten()
                         .collect();
 
     // PART ONE
     {
+        let mut pos = SubmarinePos { x: 0, y: 0, };
+        
+        
         // for l in 
         // println!("part 1: {}", inc_count );
     }
